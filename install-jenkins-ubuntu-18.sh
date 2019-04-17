@@ -7,3 +7,5 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt update
 echo 'Installing Jenkins'
 sudo apt install jenkins
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
