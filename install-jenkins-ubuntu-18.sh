@@ -9,3 +9,4 @@ echo 'Installing Jenkins'
 sudo apt install jenkins
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+cat /var/lib/jenkins/secrets/initialAdminPassword
