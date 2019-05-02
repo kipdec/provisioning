@@ -32,4 +32,19 @@ sudo useradd --system --home /etc/vault.d --shell /bin/false vault
 
 echo "Copying vault service file..."
 sudo cp vault.service /etc/systemd/system/vault.service
+
+echo "Creating config file..."
+sudo mkdir --parents /etc/vault.d
+sudo touch /etc/vault.d/vault.hcl
+sudo chown --recursive vault:vault /etc/vault.d
+sudo chmod 640 /etc/vault.d/vault.hcl
+
+sudo echo "listener \"tcp\" {" >> /etc/vault.d/vault.hcl
+sudo echo "  address       = \"0.0.0.0:8200\"" >> /etc/vault.d/vault.hcl
+sudo echo "}" >> /etc/vault.d/vault.hcl
+echo "Enabling UI"
+sudo echo "ui = true" >> /etc/vault.d/vault.hcl
+sudo systemctl enable vault
+sudo systemctl start vault
+sudo systemctl status vault
 echo "Done!"
