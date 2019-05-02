@@ -16,3 +16,9 @@ sudo chown root:root vault
 echo "Moving directories..."
 sudo mv vault /usr/local/bin
 vault --version
+
+echo "Cleaning up..."
+echo "Removing the .zip..."
+sudo rm vault_1.1.2_linux_amd64.zip
+
+echo "Done!"
